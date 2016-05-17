@@ -1,0 +1,48 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Fun Chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+      body, input, button { font: 1rem "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; }
+      form { background: #303030; padding: 10px 50px 50px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: #4292C6; border: none; padding: 10px; color: #fff;}
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 10px 50px; }
+      #messages li:nth-child(odd) { background: #ccc; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="" id="form">
+      <input id="m" autocomplete="off" />
+      <button>Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // initialize socket
+      var socket = io();
+      // get references to dom elements
+      var form = document.getElementById('form');
+      var input = document.getElementById('m');
+      var list = document.getElementById('messages');
+      // submit handler
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // send our request
+        socket.emit('chat message', input.value);
+        // clear the input
+        input.value = '';
+        return false;
+      });
+      // receiving messages
+      socket.on('chat message', function(msg){
+        var entry = document.createElement('li');
+        entry.appendChild(document.createTextNode(msg));
+        list.appendChild(entry);
+      });
+    </script>
+  </body>
+</html>
