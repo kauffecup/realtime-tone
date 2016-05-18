@@ -3,14 +3,16 @@
 <html>
   <head>
     <title>Tone Visualizer</title>
+    <meta name="viewport" content="width=device-width">
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
       body { position: absolute; width: 100%; height: 100%; }
       body, input, button { font: 1rem "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; }
       body { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-      #current-text { padding: 40px 10px; color: #fff; text-align: center;}
-      form { width: 500px; display: flex; }
-      form input { border: 2; padding: 10px; flex: 1; margin-right: 10px; }
+      #tone-visualizer { width: 100%; }
+      #current-text { padding: 40px 10px; color: #fff; text-align: center; width: 80%; overflow: hidden; margin-left: auto; margin-right: auto;}
+      form { width: 80%; max-width: 500px; display: flex; margin-left: auto; margin-right: auto; }
+      form input { border: 2px solid #ccc; padding: 10px; flex: 1; margin-right: 10px; }
       form button { width: 90px; background: #000; border: 2px solid #fff; padding: 10px; color: #fff;}
     </style>
   </head>
