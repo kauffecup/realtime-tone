@@ -4,7 +4,7 @@ const io = require('socket.io')(server);
 const toneAnalyzer = require('watson-developer-cloud').tone_analyzer({
   username: '<username>',
   password: '<password>',
-  version: 'v3-beta',
+  version: 'v3',
   version_date: '2016-05-19'
 });
 

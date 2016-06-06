@@ -1,11 +1,8 @@
 applications:
 - services:
-  - Tone Analyzer-ce
+  - Tone Analyzer
   buildpack: sdk-for-nodejs
-  host: realtimetone
-  name: realtimetone
   command: npm start
   path: .
-  domain: mybluemix.net
   instances: 1
   memory: 256M
